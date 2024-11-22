@@ -65,6 +65,8 @@ let utenteAmbassador = [];
 
 utenteAmbassador.push(marco);
 
+console.log(" solo utente Ambassador: " + utenteAmbassador);
+
 //----------------------
 //--------------------------------------------logica per un sito di e-commerce----------------------------------------------------------------------
 //----------------------
@@ -78,6 +80,11 @@ for (let i = 0; i < prices.length; i++) {
 
 console.log("totale del Carrello: ", totaleCarrello);
 
+// per la somma si puo usare anche reduce 
+// esempio
+// let totaleCarrello = prices.reduce((total, item) => total + item, 0);
+// console.log("totale del Carrello: ", totaleCarrello);
+
 //-----------------------------------------------------------------
 
 
@@ -85,20 +92,20 @@ if (totaleCarrello > 100 && utenteCheEffettuaLAcquisto.isAmbassador) {
   totaleCarrello = totaleCarrello * 0.7;
   totaleOrdine = totaleCarrello;
   console.log("Spedizione gratuita e sconto del 30% applicato.");
-  console.log("totaleOrdine : ", totaleOrdine);
+  console.log("totaleOrdine : " + totaleOrdine);
 } else if (totaleCarrello <= 100 && utenteCheEffettuaLAcquisto.isAmbassador) {
   totaleCarrello = totaleCarrello * 0.7;
   totaleOrdine = totaleCarrello + shippingCost;
   console.log("Sconto del 30% applicato e spedizione a 50€.");
-  console.log("totaleOrdine : ", totaleOrdine);
+  console.log("totaleOrdine : " + totaleOrdine);
 } else if (totaleCarrello > 100 && !utenteCheEffettuaLAcquisto.isAmbassador) {
   totaleOrdine = totaleCarrello;
   console.log("Spedizione gratuita, nessuno sconto applicato.");
-  console.log("totaleOrdine : ", totaleOrdine);
+  console.log("totaleOrdine : " + totaleOrdine);
 } else if (totaleCarrello <= 100 && !utenteCheEffettuaLAcquisto.isAmbassador) {
   totaleOrdine = totaleCarrello + shippingCost;
   console.log("Nessuno sconto applicato e spedizione a 50€.");
-  console.log("totaleOrdine : ", totaleOrdine);
+  console.log("totaleOrdine : " + totaleOrdine);
 }
 
 
